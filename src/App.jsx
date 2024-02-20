@@ -7,8 +7,14 @@ function App() {
   const [selectedContactId, setSelectedContactId] = useState(null);
   return (
     <>
-      <SelectedContact selectedContactId={selectedContactId} />
-      <ContactList setSelectedContactId={setSelectedContactId} />
+      {selectedContactId === null ? (
+        <ContactList setSelectedContactId={setSelectedContactId} />
+      ) : (
+        <SelectedContact
+          selectedContactId={selectedContactId}
+          setSelectedContactId={setSelectedContactId}
+        />
+      )}
     </>
   );
 }
